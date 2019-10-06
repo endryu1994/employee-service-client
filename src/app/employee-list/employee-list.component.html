@@ -1,0 +1,41 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h1 align="center">Employee List</h1>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>Date of birth</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Project</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees | async">
+          <td>{{employee.firstName}}</td>
+          <td>{{employee.lastName}}</td>
+          <td>{{employee.dateOfBirth}}</td>
+          <td>{{employee.username}}</td>
+          <td>{{employee.email}}</td>
+          <td>{{employee.phone}}</td>
+          <td *ngIf="employee.project != undefined; else notExist">{{employee.project.name}}</td>
+          <ng-template #notExist>
+            <td></td>
+          </ng-template>
+          <td>
+            <button (click)="deleteEmployee(employee.id)" class="btn btn-danger">Delete</button>
+            <button (click)="editEmployee(employee)" class="btn btn-info">Update</button>
+            <button (click)="deleteProject(employee.id)" class="btn btn-secondary">Delete Project</button>
+            <button (click)="addEmployeeProject(employee)" class="btn btn-primary">Add/Change Project</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

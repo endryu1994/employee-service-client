@@ -1,0 +1,20 @@
+<h1 align="center">Create Project</h1>
+<div style="width: 50%; margin: auto;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="projectName">First Name</label>
+      <input type="text" class="form-control" id="projectName" required [(ngModel)]="project.name" name="projectName">
+    </div>
+    <div class="form-group">
+      <label for="start">Start project</label>
+      <input type="date" class="form-control" id="start" [(ngModel)]="project.start" name="start">
+    </div>
+    <div class="form-group">
+      <label for="finish">Finish project</label>
+      <input type="date" class="form-control" id="finish" [(ngModel)]="project.finish" name="finish">
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-success">Submit</button>
+    </div>
+  </form>
+</div>

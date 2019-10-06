@@ -1,0 +1,31 @@
+<div *ngIf="error" style="margin-top: 10px" class="alert alert-danger" role="alert">
+  {{message}}
+</div>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h1 align="center">Project List</h1>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Project name</th>
+        <th>Start project</th>
+        <th>Finish project</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let project of projects | async">
+        <td>{{project.name}}</td>
+        <td>{{project.start}}</td>
+        <td>{{project.finish}}</td>
+        <td>
+          <button (click)="deleteProject(project.id)" class="btn btn-danger">Delete</button>
+          <button (click)="editProject(project)" class="btn btn-info">Update</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
